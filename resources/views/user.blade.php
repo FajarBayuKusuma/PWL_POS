@@ -10,18 +10,22 @@
     <table border="1" cell[adding="2" cellspacing="0"]>
         <tr>
             <th>ID</th>
-            <th>Usernamme</th>
+            <!-- <th>Usernamme</th>
             <th>Nama</th>
-            <th>ID Level Pengguna</th>
+            <th>ID Level Pengguna</th> -->
         </tr>
-        @foreach ($data as $d)
+        
         <tr>
-            <td>{{$data->user_id}}</td>
-            <td>{{$data->username}}</td>
-            <td>{{$data->nama}}</td>
-            <td>{{$data->level_id}}</td>
+            <!-- <td></td>
+            <td></td>
+            <td></td>
+            <td></td> -->
+            <th>Jumlah Pengguna</th>
         </tr>
-        @endforeach
+        <tr>
+            <td>{{$data}}</td>
+        </tr>
+        
     </table>
 </body>
 </html>
