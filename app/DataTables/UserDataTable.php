@@ -23,16 +23,11 @@ class UserDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($user) {
-                return '<a href="' . route('/user/edit', ['id' => $user->user_id]) . '" class="btn btn-primary mr-2">
-                <i class="fa fa-pencil-alt" style="color: white; font-size: 12px;"></i>
-                </a>' .
-                '<a href="' . route('/user/delete', ['id' => $user->user_id]) . '" class="btn btn-danger" 
-                onclick="return confirm(\'Are you sure want to delete?\')">
-                <i class="fa fa-trash" style="color: white; font-size: 12px;"></i>
-                </a>';
+            //->addColumn('action', 'user.action')
+            ->addColumn('action', function ($user) {
+                return '<a href="../user/ubah/' . $user->user_id . '" class="btn btn-warning">Edit</a>
+                <a href="../user/hapus/' . $user->user_id . '" class="btn btn-danger">Delete</a>';
             })
-            ->rawColumns(['action'])
             ->setRowId('id');
     }
 
@@ -73,15 +68,15 @@ class UserDataTable extends DataTable
     {
         return [
             Column::make('user_id'),
-            Column::make('level_id'),
             Column::make('username'),
             Column::make('nama'),
+            Column::make('level_id'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
             ->exportable(false)
             ->printable(false)
-            ->width(100)
+            ->width(150)
             ->addClass('text-center'),
         ];
     }

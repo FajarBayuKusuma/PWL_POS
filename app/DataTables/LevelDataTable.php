@@ -23,16 +23,11 @@ class LevelDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($level){
-                return '<a href="' . route('/level/edit', ['id' => $level->level_id]) . '" class="btn btn-primary mr-2">
-                <i class="fa fa-pencil-alt" style="color: white; font-size: 12px;"></i>
-                </a>' .
-                '<a href="' . route('/level/delete', ['id' => $level->level_id]) . '" class="btn btn-danger" 
-                onclick="return confirm(\'Are you sure want to delete?\')">
-                <i class="fa fa-trash" style="color: white; font-size: 12px;"></i>
-                </a>';
+            //->addColumn('action', 'level.action')
+            ->addColumn('action', function ($level) {
+                return '<a href="../level/edit/' . $level->level_id . '" class="btn btn-warning">Edit</a>
+                <a href="../level/delete/' . $level->level_id . '" class="btn btn-danger">Delete</a>';
             })
-            ->rawColumns(['action'])
             ->setRowId('id');
     }
 
@@ -78,10 +73,11 @@ class LevelDataTable extends DataTable
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(100)
-                  ->addClass('text-center'),
+            ->exportable(false)
+            ->printable(false)
+            ->width(150)
+            ->addClass('text-center'),
+
         ];
     }
 
