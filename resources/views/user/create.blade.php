@@ -1,4 +1,4 @@
-@extends('m_user/template')
+@extends('user/template')
 @section('content')
 
 <div class="row mt-5 mb-5">
@@ -7,7 +7,7 @@
             <h2>Membuat Daftar User</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('m_user.index') }}"> Kembali</a>
+            <a class="btn btn-secondary" href="{{ route('user.index') }}"> Kembali</a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
     </div>
 @endif
 
-<form action="{{ route('m_user.store') }}" method="POST">
+<form action="{{ route('user.store') }}" method="POST">
     @csrf
 
     <div class="col-xs-12 col-sm-12 col-md-12">

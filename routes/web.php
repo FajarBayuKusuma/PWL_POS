@@ -37,7 +37,7 @@ Route::post('/kategori', [KategoriController::class, 'store']);
 
 Route::post('/kategori/edit/{id}', [KategoriController::class, 'edit']);
 Route::put('/kategori/edit_save/{id}', [KategoriController::class, 'edit_save']);
-Route::post('/kategori', [KategoriController::class, 'edit_save']);
+
 
 Route::post('/kategori/delete/{id}', [KategoriController::class, 'delete']);
 

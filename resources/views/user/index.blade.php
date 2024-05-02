@@ -1,17 +1,21 @@
 @extends('layout.app')
 
-{{-- Customize layout sections --}}
+{{-- Customize layout section --}}
 
-@section('subtitle', 'User')
-@section('content_header_title', 'Manage')
-@section('content_header_subtitle', 'User')
+@section('subtitle','Kategori')
+@section('content_header_title','Home')
+@section('content_header_subtitle','Kategori')
 
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="card-header">Manage User</div>
+            <div class="card-header">
+                Manage Lelvel
+                <div>
+                    <a href="{{ url('/user/create') }}" class="btn btn-primary float-right"><i class="fas fa-plus-circle"></i> Add</a> <!-- Tambahkan tombol Add -->
+                </div>
+            </div>
             <div class="card-body">
-                <a href="/user/tambah" class="btn btn-primary mb-3"><i class="fas fa-fw fa-plus"></i> Add User</a>
                 {{ $dataTable->table() }}
             </div>
         </div>

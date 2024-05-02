@@ -10,23 +10,24 @@ use Yajra\DataTables\Facades\DataTables;
 
 class LevelController extends Controller
 {
-    public function index()
+    public function index(LevelDataTable $dataTable)
     {
         // Menampilkan Halaman Awal Level User
-        $breadcrumb = (object)[
-            'title' => 'Daftar Level User',
-            'list' => ['Home','Level']
-        ];
+        // $breadcrumb = (object)[
+        //     'title' => 'Daftar Level User',
+        //     'list' => ['Home','Level']
+        // ];
 
-        $page = (object)[
-            'title' => 'Daftar level user yang tersimpan dalam sistem'
-        ];
+        // $page = (object)[
+        //     'title' => 'Daftar level user yang tersimpan dalam sistem'
+        // ];
 
-        $activeMenu = 'level'; //set menu yang sedang aktif
+        // $activeMenu = 'level'; //set menu yang sedang aktif
 
-        $level = LevelModel::all(); //ambil data level untuk filter level
+        // $level = LevelModel::all(); //ambil data level untuk filter level
 
-        return view('level.index',['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
+        // return view('level.index',['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
+        return $dataTable->render('level.index');
     }
 
     // Ambil data level user dalam bentuk json untuk datatables

@@ -24,11 +24,13 @@ class KategoriController extends Controller
     public function store(Request $request): RedirectResponse
     {
         // Retrive the validated input data...
-        $validatedData = $request->validated();
+        $validatedData = $request->validate([
+            'kategori_kode' => 'required',
+        ]);
 
         // Retrive a portion of the validated input data
-        $validated = $request->safe()->only(['kategori_kode', 'kategori_nama']);
-        $validated = $request->safe()->except(['kategori_kode', 'kategori_nama']);
+        // $validated = $request->safe()->only(['kategori_kode', 'kategori_nama']);
+        // $validated = $request->safe()->except(['kategori_kode', 'kategori_nama']);
 
         // B. Validasi pada server
         //$validatedData = $request->validate([
@@ -39,10 +41,10 @@ class KategoriController extends Controller
         //     'kategori_nama' => 'bail|required|unique:m_kategori',
         // ]);
 
-        // KategoriModel::create([
-            // 'kategori_kode' => $request->kategori_kode,
-            // 'kategori_nama' => $request->kategori_nama,
-        //]);
+        KategoriModel::create([
+            'kategori_kode' => $request->kategori_kode,
+            'kategori_nama' => $request->kategori_nama,
+        ]);
 
         return redirect('/kategori');
     }
