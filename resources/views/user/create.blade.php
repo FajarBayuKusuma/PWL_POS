@@ -6,7 +6,7 @@
         <div class="float-left">
             <h2>Membuat Daftar User</h2>
         </div>
-        <div class="float-right">
+        <div class="float-right
             <a class="btn btn-secondary" href="{{ route('user.index') }}"> Kembali</a>
         </div>
     </div>

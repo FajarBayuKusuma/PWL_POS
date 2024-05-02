@@ -7,7 +7,7 @@
             <h2> Show User</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('m_user.index') }}"> Kembali</a>
+            <a class="btn btn-secondary" href="{{ url('user.index') }}"> Kembali</a>
         </div>
     </div>
 </div>

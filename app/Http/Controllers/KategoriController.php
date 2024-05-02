@@ -26,6 +26,7 @@ class KategoriController extends Controller
         // Retrive the validated input data...
         $validatedData = $request->validate([
             'kategori_kode' => 'required',
+            'kategori_nama' => 'required',
         ]);
 
         // Retrive a portion of the validated input data
@@ -33,13 +34,13 @@ class KategoriController extends Controller
         // $validated = $request->safe()->except(['kategori_kode', 'kategori_nama']);
 
         // B. Validasi pada server
-        //$validatedData = $request->validate([
+        $validatedData = $request->validate([
 
-            // 'kategori_kode' => ['required', 'unique:m_kategori', 'max:10'],
-            // 'kategori_nama' => ['required'],
-        //     'kategori_kode' => 'bail|required|unique:m_kategori|max:10',
-        //     'kategori_nama' => 'bail|required|unique:m_kategori',
-        // ]);
+            'kategori_kode' => ['required', 'unique:m_kategori', 'max:10'],
+            'kategori_nama' => ['required'],
+            'kategori_kode' => 'bail|required|unique:m_kategori|max:10',
+            'kategori_nama' => 'bail|required|unique:m_kategori',
+        ]);
 
         KategoriModel::create([
             'kategori_kode' => $request->kategori_kode,
