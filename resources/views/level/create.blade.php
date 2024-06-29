@@ -7,7 +7,7 @@
         <div class="card-tools"></div>
     </div>
     <div class="card-body">
-        <form method="POST" action="{{ url('level') }}" class="form-horizontal">
+        <form method="POST" action="{{ url('/level') }}" class="form-horizontal">
             @csrf
             <div class="form-group row">
                 <label class="col-1 control-label col-form-label">Kode Level</label>

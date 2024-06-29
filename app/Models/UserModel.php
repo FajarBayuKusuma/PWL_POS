@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Illuminate\Foundation\Auth\User as UserAuthenticate;
 
 
-class UserModel extends Model
+
+class UserModel extends UserAuthenticate
 {
     use HasFactory;
 

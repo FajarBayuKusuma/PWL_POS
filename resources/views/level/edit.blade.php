@@ -7,7 +7,7 @@
             <h2>Edit User</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('m_user.index') }}"> Kembali</a>
+            <a class="btn btn-secondary" href="{{ url('/user/index') }}"> Kembali</a>
         </div>
     </div>
 </div>
@@ -23,42 +23,42 @@
     </div>
 @endif
 
-<form action="{{ route('m_user.update', $useri->user_id) }}" method="POST">
+<form action="{{ url('/user/update', $user->user_id) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>User_id:</strong>
-                <input type="text" name="userid" value="{{ $useri->user_id }}" class="form-control" placeholder="Masukkan user id">
+                <input type="text" name="userid" value="{{ $user->user_id }}" class="form-control" placeholder="Masukkan user id">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Level_id:</strong>
-                <input type="text" name="levelid" value="{{ $useri->level_id }}" class="form-control" placeholder="Masukkan level">
+                <input type="text" name="levelid" value="{{ $user->level_id }}" class="form-control" placeholder="Masukkan level">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Username:</strong>
-                <input type="text" value= "{{ $useri->username }}" class="form-control" name="username" placeholder="Masukkan Nomor username"">
+                <input type="text" value= "{{ $user->username }}" class="form-control" name="username" placeholder="Masukkan Nomor username"">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>nama:</strong>
-                <input type="text" value= "{{ $useri->nama }}"name="nama" class="form-control" placeholder="Masukkan nama"></input>
+                <input type="text" value= "{{ $user->nama }}"name="nama" class="form-control" placeholder="Masukkan nama"></input>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Password:</strong>
-                <input type="password" value= "{{ $useri->password }}"name="password" class="form-control" placeholder="Masukkan password"></input>
+                <input type="password" value= "{{ $user->password }}"name="password" class="form-control" placeholder="Masukkan password"></input>
             </div>
         </div>
 

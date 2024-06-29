@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostRequest extends FormRequest
+class LevelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'kategori_kode'=>'reqeuired',
-        'kategori_nama'=>'reqeuired',
+        'level_kode'=>'bail|required|min:3|max:5',
+        'level_nama'=>'bail|required|max:30',
         ];
     }
     

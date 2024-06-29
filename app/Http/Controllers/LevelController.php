@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\LevelRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\LevelDataTable;
@@ -71,20 +71,22 @@ class LevelController extends Controller
     }
 
     // Menyimpan data level user baru
-    public function store(Request $request)
+    public function store(LevelRequest $request)
     {
-        $request->validate([
-            'level_kode'    => 'required|string|min:3|unique:m_level,level_kode', // level_kode harus diisi, berupa string, minimal 3 karakter, dan bernilai unik di tabel m_level kolom level_kode
-            'level_nama'    => 'required|string|max:100|'  // level_nama harus diisi, berupa string, dan maksimal 100 karakter
-        ]);
+        // $request->validate([
+        //     'level_kode'    => 'required|string|min:3|unique:m_level,level_kode', // level_kode harus diisi, berupa string, minimal 3 karakter, dan bernilai unik di tabel m_level kolom level_kode
+        //     'level_nama'    => 'required|string|max:100|'  // level_nama harus diisi, berupa string, dan maksimal 100 karakter
+        // ]);
 
-        LevelModel::create([
-            'level_kode' => $request->level_kode,
-            'level_nama' => $request->level_nama,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
+        // LevelModel::create([
+        //     'level_kode' => $request->level_kode,
+        //     'level_nama' => $request->level_nama,
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        $validated = $request->validate();
+        //Retrive a portion of the validated input data
+        $validated = $request->safe();
         return redirect('/level')->with('success', 'Data level user berhasil disimpan');
     }
 
